@@ -1,15 +1,41 @@
 services:
-  rpc:
-    image: ghcr.io/ckcchain/node:latest
+  ckc-node:
+    image: ethereum/client-go:v1.13.15
     restart: unless-stopped
-    command: ["ckcnode", "--config", "/etc/ckcchain/node.toml"]
+    command:
+      - --datadir=/root/.ethereum
+      - --networkid=8898
+      - --http
+      - --http.addr=0.0.0.0
+      - --http.port=8545
+      - --http.api=eth,net,web3,txpool,clique
+      - --http.vhosts=*
+      - --ws
+      - --ws.addr=0.0.0.0
+      - --ws.port=8546
+      - --ws.api=eth,net,web3,txpool
+      - --port=30303
+      - --syncmode=full
+      - --gcmode=archive
+      - --mine
+      - --miner.etherbase=${CKC_VALIDATOR_ADDRESS}
+      - --unlock=${CKC_VALIDATOR_ADDRESS}
+      - --password=/run/secrets/validator_password
+      - --allow-insecure-unlock
     ports:
       - "8545:8545"
       - "8546:8546"
       - "30303:30303"
+      - "30303:30303/udp"
     volumes:
-      - ./node.toml:/etc/ckcchain/node.toml:ro
-      - ckc-data:/var/lib/ckcchain
+      - ckc-data:/root/.ethereum
+      - ./mainnet.json:/root/mainnet.json:ro
+    secrets:
+      - validator_password
+
+secrets:
+  validator_password:
+    file: ./validator_password.txt
 
 volumes:
   ckc-data:
