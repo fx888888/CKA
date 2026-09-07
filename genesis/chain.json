@@ -1,0 +1,16 @@
+{
+  "chain_name": "CKCchain",
+  "native_symbol": "CKA",
+  "decimals": 18,
+  "chain_id": 0,
+  "network_id": 0,
+  "consensus": "fast-bft-posa",
+  "block_time_seconds": 2,
+  "max_supply": "500000000000000000000000000",
+  "genesis_allocation": {
+    "address": "0xb87ee251CF89CBCF9a0b758a8C4d8b259629dA06",
+    "amount": "500000000000000000000000000"
+  },
+  "inflation": false,
+  "notes": "chain_id and network_id are placeholders and must be finalized before the production genesis is sealed."
+}
