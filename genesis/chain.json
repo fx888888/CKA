@@ -2,8 +2,8 @@
   "chain_name": "CKCchain",
   "native_symbol": "CKA",
   "decimals": 18,
-  "chain_id": 0,
-  "network_id": 0,
+  "chain_id": 8898,
+  "network_id": 8898,
   "consensus": "fast-bft-posa",
   "block_time_seconds": 2,
   "max_supply": "500000000000000000000000000",
@@ -12,5 +12,7 @@
     "amount": "500000000000000000000000000"
   },
   "inflation": false,
-  "notes": "chain_id and network_id are placeholders and must be finalized before the production genesis is sealed."
+  "validator_rewards": "fixed-allocation-reserve",
+  "upgrade_authority": "genesis-controlled",
+  "notes": "Production genesis must be generated from finalized validator identities and independently verified before launch."
 }
