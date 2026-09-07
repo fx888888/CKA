@@ -1,0 +1,26 @@
+[chain]
+name = "CKCchain"
+chain_id = 0
+network_id = 0
+
+[node]
+data_dir = "/var/lib/ckcchain"
+max_peers = 100
+
+[rpc]
+http = true
+http_addr = "0.0.0.0"
+http_port = 8545
+ws = true
+ws_addr = "0.0.0.0"
+ws_port = 8546
+
+[p2p]
+listen_addr = "0.0.0.0:30303"
+
+[consensus]
+block_time_seconds = 2
+validator_mode = true
+
+# Replace placeholders during production deployment.
+# bootnodes = ["enode://..."]
