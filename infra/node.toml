@@ -1,7 +1,7 @@
 [chain]
 name = "CKCchain"
-chain_id = 0
-network_id = 0
+chain_id = 8898
+network_id = 8898
 
 [node]
 data_dir = "/var/lib/ckcchain"
@@ -9,18 +9,21 @@ max_peers = 100
 
 [rpc]
 http = true
-http_addr = "0.0.0.0"
+http_addr = "127.0.0.1"
 http_port = 8545
 ws = true
-ws_addr = "0.0.0.0"
+ws_addr = "127.0.0.1"
 ws_port = 8546
 
 [p2p]
 listen_addr = "0.0.0.0:30303"
 
 [consensus]
+name = "fast-bft-posa"
 block_time_seconds = 2
 validator_mode = true
 
-# Replace placeholders during production deployment.
-# bootnodes = ["enode://..."]
+[validator]
+# Populate only with public validator identities at deployment time.
+# private_key_file must point to an OFF-REPO secret.
+# private_key_file = "/etc/ckcchain/secrets/validator.key"
