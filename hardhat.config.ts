@@ -8,7 +8,7 @@ const config: HardhatUserConfig = {
   networks: {
     ckc: {
       url: process.env.CKC_RPC_URL || "http://127.0.0.1:8545",
-      chainId: Number(process.env.CKC_CHAIN_ID || 0),
+      chainId: Number(process.env.CKC_CHAIN_ID || 8898),
       accounts: process.env.DEPLOYER_PRIVATE_KEY ? [process.env.DEPLOYER_PRIVATE_KEY] : [],
     },
   },
