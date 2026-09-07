@@ -1,0 +1,15 @@
+services:
+  rpc:
+    image: ghcr.io/ckcchain/node:latest
+    restart: unless-stopped
+    command: ["ckcnode", "--config", "/etc/ckcchain/node.toml"]
+    ports:
+      - "8545:8545"
+      - "8546:8546"
+      - "30303:30303"
+    volumes:
+      - ./node.toml:/etc/ckcchain/node.toml:ro
+      - ckc-data:/var/lib/ckcchain
+
+volumes:
+  ckc-data:
