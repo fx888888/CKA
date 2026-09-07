@@ -1,0 +1,10 @@
+.env
+*.key
+*.pem
+*.seed
+*.mnemonic
+*.secret
+.local/
+infra/validator_password.txt
+infra/validator.env
+infra/mainnet.json
